@@ -10,7 +10,7 @@ module.exports = {
       breed: 'Tabby',
       age: 5,
       createdAt: date,
-      updatedAT: date
+      updatedAt: date
     }])
   },
 
