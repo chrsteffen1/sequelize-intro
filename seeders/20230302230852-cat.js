@@ -9,7 +9,7 @@ module.exports = {
       name: 'Snuffles',
       breed: 'Tabby',
       age: 5,
-      createdat: date,
+      createdAt: date,
       updatedAT: date
     }])
   },
