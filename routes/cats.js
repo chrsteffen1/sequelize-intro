@@ -8,3 +8,4 @@ module.exports = router
 
 router.post('/', catsCtrl.create)
 router.get('/', catsCtrl.index)
+router.put('/:id', catsCtrl.update)
