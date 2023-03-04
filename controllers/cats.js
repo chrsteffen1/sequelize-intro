@@ -1,4 +1,4 @@
-const { Cat } = require("../models")
+const { Cat, Feeding } = require("../models")
 
 const create = async (req,res) => {
   try {
@@ -39,10 +39,21 @@ const deleteCat = async (req, res) => {
   }
 }
 
+const addFeeding = async (req,res) => {
+  try {
+    req.body.catId = req.params.id
+    const feeding = await Feeding.create(req.body)
+    res.status(200).json(feeding)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   create,
   index,
   update,
-  delete: deleteCat
+  delete: deleteCat,
+  addFeeding,
 }
 
