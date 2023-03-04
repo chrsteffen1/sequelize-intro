@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Feeding.belongsTo(models.Cat, {
+        foreignKey: 'catId'
+      })
     }
   }
   Feeding.init({
