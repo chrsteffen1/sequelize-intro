@@ -4,3 +4,5 @@ const toysCtrl = require('../controllers/toys.js')
 // Routes
 
 module.exports = router
+
+router.post('/', toysCtrl.create)
