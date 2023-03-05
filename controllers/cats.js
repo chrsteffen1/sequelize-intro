@@ -1,4 +1,4 @@
-const { Cat, Feeding } = require("../models")
+const { Cat, Feeding, Toy, CatToy } = require("../models")
 
 const create = async (req,res) => {
   try {
@@ -51,11 +51,27 @@ const addFeeding = async (req,res) => {
   }
 }
 
+const associateToy = async (req, res) => {
+  try {
+    // destructuring catId and toyId from req.params
+    const { catId, toyId } = req.params
+
+    const association = await CatToy.create({
+      catId: catId, toyId: toyId
+    })
+
+    res.status(200).json(association)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   create,
   index,
   update,
   delete: deleteCat,
   addFeeding,
+  associateToy,
 }
 

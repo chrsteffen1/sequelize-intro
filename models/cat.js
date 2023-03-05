@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'catId',
         as: 'feedings'
       })
+      Cat.belongsToMany(models.Toy, {
+        as: 'toys', //cat.toys: []
+        through: models.CatToy,
+        foreignKey: 'catId'
+      })
     }
   }
   Cat.init({
