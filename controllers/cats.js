@@ -11,9 +11,14 @@ const create = async (req,res) => {
 
 const index = async (req, res) => {
   try {
-    const cats = await Cat.findAll({
-      include: [{model: Feeding, as: 'feedings'}]
-    })
+    const cats = await Cat.findAll(
+      {
+        include: [
+          { model: Feeding, as: "feedings" },
+          { model: Toy, as: "toys", through: { attributes: [] } },
+        ]
+      }
+    )
     res.status(200).json(cats)
   } catch (error) {
     res.status(500).json(error)
